@@ -8,7 +8,6 @@ const data =
 
 /**
  * Convert an ASCII string into a Buffer.
- * Write the buffer to `./files/loop.js`.
  * @param  {string} str
  */
 const convert = str => {
@@ -22,13 +21,13 @@ const convert = str => {
   for (let i = 0; i < arr.length; i++) {
     buff[i] = arr[i];
   }
-
-  /**
-   * Because no encoding is specified as the 3rd argument, writeFile
-   * assumes the data type is a buffer.
-   * Ideally this step would be written as a separate function, but
-   * that appears to be a breaking change.
-   */
+  return buff;
+};
+/**
+ * Because no encoding is specified as the 3rd argument, writeFile
+ * assumes the data type is a buffer.
+ */
+const writeLoop = buff => {
   fs.writeFile('./files/loop.js', buff, err => {
     if (err) {
       console.error(err);
@@ -37,7 +36,7 @@ const convert = str => {
   });
 };
 
-// Run the function
-convert(data);
+// Run the functions
+writeLoop(convert(data));
 
 module.exports = exports = { convert };
