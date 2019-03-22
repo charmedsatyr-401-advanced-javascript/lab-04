@@ -6,7 +6,7 @@
 ### Author: Joseph Wolfe
 
 ### Links and Resources
-* [PR](https://github.com/charmedsatyr-401-advanced-javascript/lab-04)
+* [repo](https://github.com/charmedsatyr-401-advanced-javascript/lab-04) (Next time it will be a PR to a submission branch)
 * [![Build Status](https://travis-ci.org/charmedsatyr-401-advanced-javascript/lab-04.svg?branch=master)](https://travis-ci.org/charmedsatyr-401-advanced-javascript/lab-04)
 
 #### Documentation
