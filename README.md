@@ -57,10 +57,11 @@ This function modifies the input argument and writes or appends it to `./article
 * What assertions were made?
   * Only dummy assertions have been made.
 * What assertions need to be / should be made?
-  * The modules require a full range of tests. 
-  * For `convert`, tests might include ensuring error handling for invalid arguments or if the `./files` folder does not exist in the correct path.
-  * `write` and `append` functions require only proof of life testing because they are wrappers around `fs` built-in methods, but with a hardcoded `path` and `callback` arguments.
-  * `tag` accomplishes the goals of the Lab, but it probably uses the wrong method to do so because it manipulates its input as strings rather than as buffers, despite the fact that its input, in practice, is a line-by-line stream from a file. If desired, However, a series of tests might be made to test the internal RegEx and other string manipulation techniques.
+  * The modules lack meaningful tests. 
+  * To some extent, the the proof is in the pudding: do the intended outputs result from running the module? They do on the tested system.
+  * However, for `convert`, tests might include ensuring error handling for invalid arguments or if the `./files` folder does not exist in the correct path.
+  * `write` and `append` functions require only proof of life testing because they are wrappers around `fs` built-in methods, but with a hardcoded `path` and `callback` arguments, though more details testing of the node modules might be done with mocks.
+  * `tag` accomplishes the goals of the Lab, but it probably uses the wrong method to do so because it manipulates its input as strings rather than as buffers, despite the fact that its input, in practice, is a line-by-line stream from a file. If desired, however, a series of tests might be made to test the internal RegEx and other string manipulation techniques.
 
 #### UML
 N/A
