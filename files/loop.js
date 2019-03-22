@@ -1,1 +1,1 @@
-['Tom','Sally','Harry'].forEach(n=>console.log(n));
+'use strict';['Tom', 'Brunhild', 'Voldemort'].forEach(n=>console.log(n));

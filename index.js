@@ -2,18 +2,23 @@
 
 const fs = require('fs');
 
-// ASCII string for a forEach function
-const data =
-  '91 39 84 111 109 39 44 39 83 97 108 108 121 39 44 39 72 97 114 114 121 39 93 46 102 111 114 69 97 99 104 40 110 61 62 99 111 110 115 111 108 101 46 108 111 103 40 110 41 41 59';
+/**
+ Convert a string to an ASCII array
+ * @param {string} str
+ **/
+const strToCharCode = str => {
+  const arr = [];
+  for (let i = 0; i < str.length; i++) {
+    arr.push(str.charCodeAt(i));
+  }
+  return arr;
+};
 
 /**
- * Convert an ASCII string into a Buffer.
- * @param  {string} str
+ * Convert an array of ASCII codes into a Buffer.
+ * @param {array} arr
  */
-const convert = str => {
-  // Convert the string to an array of integers
-  const arr = str.split(' ').map(n => parseInt(n));
-
+const charCodeToBuffer = arr => {
   // Create a new array of 8-bit, unsigned integers of ASCII's length
   const buff = new Uint8Array(arr.length);
 
@@ -23,12 +28,15 @@ const convert = str => {
   }
   return buff;
 };
+
 /**
  * Because no encoding is specified as the 3rd argument, writeFile
  * assumes the data type is a buffer.
+ * @param {buffer} buffer
+ * @param {path} path
  */
-const writeLoop = buff => {
-  fs.writeFile('./files/loop.js', buff, err => {
+const bufferToFile = (buffer, path) => {
+  fs.writeFile(path, buffer, err => {
     if (err) {
       console.error(err);
     }
@@ -36,7 +44,9 @@ const writeLoop = buff => {
   });
 };
 
-// Run the functions
-writeLoop(convert(data));
+// Run the functions on a test case
+const textToWrite = `'use strict';['Tom', 'Brunhild', 'Voldemort'].forEach(n=>console.log(n));`;
+bufferToFile(charCodeToBuffer(strToCharCode(textToWrite)), './files/loop.js');
 
-module.exports = exports = { convert };
+// Export functions
+module.exports = exports = { strToCharCode, charCodeToBuffer, bufferToFile };
