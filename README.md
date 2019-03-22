@@ -6,7 +6,7 @@
 ### Author: Joseph Wolfe
 
 ### Links and Resources
-* [repo](https://github.com/charmedsatyr-401-advanced-javascript/lab-04) (Next time it will be a PR to a submission branch)
+* [repo](https://github.com/charmedsatyr-401-advanced-javascript/lab-04) (Next time it will be a PR to a submission branch.)
 * [![Build Status](https://travis-ci.org/charmedsatyr-401-advanced-javascript/lab-04.svg?branch=master)](https://travis-ci.org/charmedsatyr-401-advanced-javascript/lab-04)
 
 #### Documentation
@@ -24,15 +24,16 @@ If `loop.js` is run with the `node` command, it logs three names.
 
 It was attempted to break the `convert` function into separate `convert` and a `writeLoop` functions, but this was found to be a breaking change.
 
-#### `web-formatter.js`
+#### `pair-programming.js`
 ##### Exported Values and Methods
 ###### `write(data)` -> writes data to `./article.html`
 This function will create `./article.html` if it does not already exist and will replace the file's existing contents if it does.
 
-###### `append(data)` -> append data to `./article.html`
+###### `append(data)` -> appends data to `./article.html`
+This function will result in an error if `./article.html` does not exist.
 
 ###### `tag(input)` -> `./article.html`
-This function modifies the input argument and writes or appends it to `./article.html` using the `write` and `append` functions.
+This function converts the input into a buffer, modifies it based on spec, and writes or appends it to `./article.html` using the `write` and `append` functions.
 
 ### Setup
 #### `.env` requirements
@@ -57,11 +58,10 @@ This function modifies the input argument and writes or appends it to `./article
 * What assertions were made?
   * Only dummy assertions have been made.
 * What assertions need to be / should be made?
-  * The modules lack meaningful tests. 
-  * To some extent, the the proof is in the pudding: do the intended outputs result from running the module? They do on the tested system.
-  * However, for `convert`, tests might include ensuring error handling for invalid arguments or if the `./files` folder does not exist in the correct path.
-  * `write` and `append` functions require only proof of life testing because they are wrappers around `fs` built-in methods, but with a hardcoded `path` and `callback` arguments, though more details testing of the node modules might be done with mocks.
-  * `tag` accomplishes the goals of the Lab, but it probably uses the wrong method to do so because it manipulates its input as strings rather than as buffers, despite the fact that its input, in practice, is a line-by-line stream from a file. If desired, however, a series of tests might be made to test the internal RegEx and other string manipulation techniques.
+  * The modules lack meaningful formal tests. However, to some extent, the the proof is in the pudding: do the intended outputs result from running the module? They *mostly* do on the tested system; for `pair-programming.js`, blank lines in `article.html` unintentionally include a bullet point.
+  * For `convert`, tests might include ensuring error handling for invalid arguments or if the `./files` folder does not exist in the correct path.
+  * `write` and `append` functions require little more than proof of life testing because they are wrappers around `fs` built-in methods, but with a hardcoded `path` and `callback` arguments. More detailed testing of the node modules might be done with mocks, but it's 3rd-party code.
+  * `tag` manipulates the stream that is fed to it line-by-line from `./files/pair-programming.txt` by the `readline` package. If desired, a series of tests might be made to test that the manipulation is to spec, or to ensure that the `readline` initialization and methods are integrated properly.
 
 #### UML
 N/A
