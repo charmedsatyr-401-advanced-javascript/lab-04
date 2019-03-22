@@ -1,0 +1,9 @@
+{
+  "source": {
+    "include": ["./lib", "./edit-file.js"]
+  },
+  "opts": {
+    "destination": "./docs",
+    "recurse": true
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "lab-04",
+  "version": "1.0.0",
+  "description": "## Submission Instructions * Follow the core submission instructions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charmedsatyr-401-advanced-javascript/lab-04.git"
+  },
+  "author": "Joseph",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/charmedsatyr-401-advanced-javascript/lab-04/issues"
+  },
+  "homepage": "https://github.com/charmedsatyr-401-advanced-javascript/lab-04#readme",
+  "devDependencies": {
+    "eslint": "^5.15.3",
+    "jest": "^24.5.0",
+    "jsdocs": "^1.0.0"
+  }
+}

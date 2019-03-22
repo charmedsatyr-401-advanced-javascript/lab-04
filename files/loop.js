@@ -1,0 +1,1 @@
+['Tom','Sally','Harry'].forEach(n=>console.log(n));
