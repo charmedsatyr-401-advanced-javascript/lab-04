@@ -5,18 +5,14 @@ const readline = require('readline');
 
 const stream = fs.createReadStream('./files/pair-programming.txt');
 
+// Instantiate a readline interface from the stream
 const rl = readline.createInterface({
   input: stream,
   output: null, //process.stdout,
 });
 
-const append = data => {
-  fs.appendFile('./article.html', data, err => {
-    if (err) {
-      console.error(err);
-    }
-  });
-};
+// Overwrite the file with the given data.
+// If the file does not exist, create it.
 const write = data => {
   fs.writeFile('./article.html', data, err => {
     if (err) {
@@ -25,16 +21,17 @@ const write = data => {
   });
 };
 
-/* Using only buffers and bit manipulation, read the file `pair-programming.txt` from the `files` folder and make the following transformations:
- * Wrap all of the content within `<article>` tags
- * Wrap each section title in an `<h2>`
- * Convert each sentence in each paragraph into a list item.
- * Convert each of the numbered sections in the bottom of the document to `<h3>` tags.
- * You may not use .toString()
- * Save the file as `pair-programming.html`
- * Verify your work by rendering it in a browser
- */
-rl.on('line', input => {
+// Append given data to a file
+const append = data => {
+  fs.appendFile('./article.html', data, err => {
+    if (err) {
+      console.error(err);
+    }
+  });
+};
+
+// Accept input and use helper functions to modify and write it
+const tag = input => {
   if (input === '6 Reasons for Pair Programming') {
     write(`<article><h2>${input}</h2>`);
   } else if (input === `one less hurdle to overcome.`) {
@@ -54,8 +51,10 @@ rl.on('line', input => {
     sentence = `<ul><li>${sentence}</li></ul>`;
     append(sentence);
   }
-});
+};
 
-// buffer last index of
-// buffer slice
-// bufer concat
+// Read the stream line by line
+// and tag the data that comes through
+rl.on('line', data => {
+  tag(data);
+});
