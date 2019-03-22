@@ -1,9 +1,0 @@
-{
-  "source": {
-    "include": ["./web-formatter.js", "./index.js"]
-  },
-  "opts": {
-    "destination": "./docs",
-    "recurse": true
-  }
-}
