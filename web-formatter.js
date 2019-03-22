@@ -11,7 +11,6 @@ const rl = readline.createInterface({
   output: null, //process.stdout,
 });
 
-
 /**
  * @param  {stream} data
  * Overwrite the file with the given data.
@@ -45,7 +44,7 @@ const append = data => {
 const tag = input => {
   if (input === '6 Reasons for Pair Programming') {
     write(`<article><h2>${input}</h2>`);
-  } else if (input === `one less hurdle to overcome.`) {
+  } else if (/one less hurdle to overcome.$/g.test(input)) {
     append(`${input}</li></ul></article>`);
   } else if (
     input === `Wow, all that? Let’s take a look!` ||
