@@ -1,6 +1,6 @@
 {
   "source": {
-    "include": ["./lib", "./edit-file.js"]
+    "include": ["./web-formatter.js", "./index.js"]
   },
   "opts": {
     "destination": "./docs",

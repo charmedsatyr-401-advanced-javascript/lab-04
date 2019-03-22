@@ -11,8 +11,12 @@ const rl = readline.createInterface({
   output: null, //process.stdout,
 });
 
-// Overwrite the file with the given data.
-// If the file does not exist, create it.
+
+/**
+ * @param  {stream} data
+ * Overwrite the file with the given data.
+ * If the file does not exist, create it.
+ **/
 const write = data => {
   fs.writeFile('./article.html', data, err => {
     if (err) {
@@ -21,7 +25,10 @@ const write = data => {
   });
 };
 
-// Append given data to a file
+/**
+ * Append given data to a file
+ * @param  {stream} data
+ */
 const append = data => {
   fs.appendFile('./article.html', data, err => {
     if (err) {
@@ -30,7 +37,11 @@ const append = data => {
   });
 };
 
-// Accept input and use helper functions to modify and write it
+/**
+ * Accept input, modify and write it
+ * Currently expects a string...
+ * @param  {string} input
+ */
 const tag = input => {
   if (input === '6 Reasons for Pair Programming') {
     write(`<article><h2>${input}</h2>`);
