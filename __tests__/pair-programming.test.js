@@ -1,24 +1,24 @@
 'use strict';
 
-const webFormatter = require('../web-formatter.js');
+const pairProgramming = require('../pair-programming.js');
 
 describe('`write`', () => {
   it('should be good', () => {
-    webFormatter.write;
+    pairProgramming.write;
     expect(true).toBeTruthy();
   });
 });
 
 describe('`append`', () => {
   it('should be good', () => {
-    webFormatter.append;
+    pairProgramming.append;
     expect(true).toBeTruthy();
   });
 });
 
 describe('`tag`', () => {
   it('should be good', () => {
-    webFormatter.tag;
+    pairProgramming.tag;
     expect(true).toBeTruthy();
   });
 });
