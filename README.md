@@ -19,12 +19,14 @@ With the hardcoded arguments, running `node index.js` will create `./files/loop.
 
 If `node ./files/loop.js` is run, it will log three names.
 
-###### `convert(string)` -> `Buffer`
-This function takes a string of ASCII-encoded characters and converts them into a buffer.
+###### `strToCharCode(str)` -> `arr`
+Converts a string to an array of equivalent ASCII-encoded characters.
 
-###### `writeLoop(Buffer)` -> writes buffer data to `./files/loop.js`
-Using the buffer, this function creates `./files/loop.js` if that file does not exist. The data is converted to a human-readable format and written to the file.
+###### `charCodeToBuffer(arr)` -> `Buffer`
+Converts and array of ASCII-encoded characters to a buffer.
 
+###### `bufferToFile(buffer, path)` -> writes buffer data to `path`
+Writes `buffer` data to a file at `path` in a human-readable format.
 
 #### `pair-programming.js`
 ##### Exported Values and Methods
@@ -61,9 +63,10 @@ This function converts the input into a buffer, modifies it per spec, and writes
   * Only dummy assertions have been made.
 * What assertions need to be / should be made?
   * The modules lack meaningful formal tests. However, to some extent, the the proof is in the pudding: do the intended outputs result from running the module? They do on the tested system.
-  * For `convert`, tests might include ensuring error handling for invalid arguments or if the `./files` folder does not exist in the correct path.
-  * `write` and `append` functions require little more than proof of life testing because they are wrappers around `fs` built-in methods, but with a hardcoded `path` and `callback` arguments. More detailed testing of the Node.js modules might be done with mocks, but it's 3rd-party code.
-  * `tag` manipulates the stream that is fed to it line-by-line from `./files/pair-programming.txt` by the `readline` package. If desired, a series of tests might be made to test that the manipulation is to spec, or to ensure that the `readline` initialization and methods are integrated properly.
+  * For `strToCharCode` and `charCodeToBuffer`, tests might include proper error handling for invalid inputs or potential edge cases like international special character sets.
+  * For `bufferToFile`, tests might include ensuring error handling for invalid arguments, edge cases, or if the `./files` folder does not exist in the specified path.
+  * `write` and `append` functions require little more than proof of life testing because they are wrappers around `fs` built-in methods, but with a hardcoded `path` and `callback` arguments.
+  * `tag` manipulates the stream that is fed to it line-by-line from `./files/pair-programming.txt` by the `readline` package. If desired, a series of tests might be made to test that the manipulation is to spec, or to ensure that the `readline` initialization and methods are integrated properly. Further testing could ensure all writing is done asynchronously.
 
 #### UML
 N/A
