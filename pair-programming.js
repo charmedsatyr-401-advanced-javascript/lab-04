@@ -8,7 +8,7 @@ const stream = fs.createReadStream('./files/pair-programming.txt');
 // Instantiate a readline interface from the stream
 const rl = readline.createInterface({
   input: stream,
-  output: process.stdout, // null, //process.stdout,
+  output: null, // process.stdout
 });
 
 /**
@@ -66,6 +66,7 @@ const tag = input => {
   const liZ = Buffer.from('</li>');
 
   // incidentals
+  const es = Buffer.from('');
   const sp = Buffer.from(' ');
   const pd = Buffer.from('.');
 
@@ -73,7 +74,9 @@ const tag = input => {
     output = `${articleA}${h2A}${buffer}${h2Z}`;
     write(output);
   } else if (buffer.includes('one less hurdle to overcome.')) {
-    output = `${buffer}${liZ}${ulZ}${articleZ}`;
+    let paragraph = input.split(`${pd}${sp}`);
+    paragraph = paragraph.join(`${pd}${liZ}${liA}`);
+    output = `${ulA}${liA}${paragraph}${liZ}${ulZ}${articleZ}`;
     append(output);
   } else if (
     buffer.includes('Wow, all that? Let’s take a look!') ||
@@ -85,6 +88,8 @@ const tag = input => {
   } else if (/^\d.*/g.test(buffer)) {
     output = `${h3A}${buffer}${h3Z}`;
     append(output);
+  } else if (buffer.length === 0) {
+    append(es);
   } else {
     let paragraph = input.split(`${pd}${sp}`);
     paragraph = paragraph.join(`${pd}${liZ}${liA}`);
