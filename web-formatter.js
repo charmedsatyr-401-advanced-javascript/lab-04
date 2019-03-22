@@ -58,3 +58,5 @@ const tag = input => {
 rl.on('line', data => {
   tag(data);
 });
+
+module.exports = exports = { write, append, tag };
