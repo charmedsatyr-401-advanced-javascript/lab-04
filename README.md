@@ -10,19 +10,21 @@
 * [![Build Status](https://travis-ci.org/charmedsatyr-401-advanced-javascript/lab-04.svg?branch=master)](https://travis-ci.org/charmedsatyr-401-advanced-javascript/lab-04)
 
 #### Documentation
-* [jsdoc](./docs/)
+* [JSDoc](./docs/)
 
 ### Modules
 #### `index.js`
 ##### Exported Values and Methods
-###### `convert(string) -> Buffer` -> content for `./files/loop.js`
-1. This function takes a string of ASCII-encoded characters and converts them into a buffer.
+With the hardcoded arguments, running `node index.js` will create `./files/loop.js` with a short `.forEach()` function inside.
 
-2. Using the buffer, this function creates `./files/loop.js` if that file does not exist. A short `.forEach()` loop is written to the file.
+If `node ./files/loop.js` is run, it will log three names.
 
-If `loop.js` is run with the `node` command, it logs three names.
+###### `convert(string) -> Buffer`
+This function takes a string of ASCII-encoded characters and converts them into a buffer.
 
- N.B.: It was attempted to break the `convert` function into separate `convert` and a `writeLoop` functions for the sake of best practices, but the most obvious implementation was found to introduce breaking changes.
+###### `writeLoop(Buffer) -> writes buffer data to `./files/loop.js`
+Using the buffer, this function creates `./files/loop.js` if that file does not exist. The data is converted to a human-readable format and written to the file.
+
 
 #### `pair-programming.js`
 ##### Exported Values and Methods
@@ -58,7 +60,7 @@ This function converts the input into a buffer, modifies it per spec, and writes
 * What assertions were made?
   * Only dummy assertions have been made.
 * What assertions need to be / should be made?
-  * The modules lack meaningful formal tests. However, to some extent, the the proof is in the pudding: do the intended outputs result from running the module? They *mostly* do on the tested system; for `pair-programming.js`, blank lines in `article.html` unintentionally include a bullet point.
+  * The modules lack meaningful formal tests. However, to some extent, the the proof is in the pudding: do the intended outputs result from running the module? They do on the tested system.
   * For `convert`, tests might include ensuring error handling for invalid arguments or if the `./files` folder does not exist in the correct path.
   * `write` and `append` functions require little more than proof of life testing because they are wrappers around `fs` built-in methods, but with a hardcoded `path` and `callback` arguments. More detailed testing of the Node.js modules might be done with mocks, but it's 3rd-party code.
   * `tag` manipulates the stream that is fed to it line-by-line from `./files/pair-programming.txt` by the `readline` package. If desired, a series of tests might be made to test that the manipulation is to spec, or to ensure that the `readline` initialization and methods are integrated properly.
