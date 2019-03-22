@@ -1,6 +1,6 @@
 {
   "source": {
-    "include": ["./web-formatter.js", "./index.js"]
+    "include": ["./pair-programming.js", "./index.js"]
   },
   "opts": {
     "destination": "./docs",

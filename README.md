@@ -60,7 +60,7 @@ This function converts the input into a buffer, modifies it per spec, and writes
 * What assertions need to be / should be made?
   * The modules lack meaningful formal tests. However, to some extent, the the proof is in the pudding: do the intended outputs result from running the module? They *mostly* do on the tested system; for `pair-programming.js`, blank lines in `article.html` unintentionally include a bullet point.
   * For `convert`, tests might include ensuring error handling for invalid arguments or if the `./files` folder does not exist in the correct path.
-  * `write` and `append` functions require little more than proof of life testing because they are wrappers around `fs` built-in methods, but with a hardcoded `path` and `callback` arguments. More detailed testing of the node modules might be done with mocks, but it's 3rd-party code.
+  * `write` and `append` functions require little more than proof of life testing because they are wrappers around `fs` built-in methods, but with a hardcoded `path` and `callback` arguments. More detailed testing of the Node.js modules might be done with mocks, but it's 3rd-party code.
   * `tag` manipulates the stream that is fed to it line-by-line from `./files/pair-programming.txt` by the `readline` package. If desired, a series of tests might be made to test that the manipulation is to spec, or to ensure that the `readline` initialization and methods are integrated properly.
 
 #### UML
