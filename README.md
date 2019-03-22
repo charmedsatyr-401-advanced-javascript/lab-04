@@ -19,10 +19,10 @@ With the hardcoded arguments, running `node index.js` will create `./files/loop.
 
 If `node ./files/loop.js` is run, it will log three names.
 
-###### `convert(string) -> Buffer`
+###### `convert(string)` -> `Buffer`
 This function takes a string of ASCII-encoded characters and converts them into a buffer.
 
-###### `writeLoop(Buffer) -> writes buffer data to `./files/loop.js`
+###### `writeLoop(Buffer)` -> writes buffer data to `./files/loop.js`
 Using the buffer, this function creates `./files/loop.js` if that file does not exist. The data is converted to a human-readable format and written to the file.
 
 
