@@ -4,13 +4,16 @@
   "description": "## Submission Instructions * Follow the core submission instructions",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint **/*.js",
+    "test": "jest --coverage --verbose",
+    "watch": "jest --watch --coverage --verbose",
+    "jsdoc": "jsdoc -c ./docs/config/jsdoc.config.json"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/charmedsatyr-401-advanced-javascript/lab-04.git"
   },
-  "author": "Joseph",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/charmedsatyr-401-advanced-javascript/lab-04/issues"
@@ -19,6 +22,7 @@
   "devDependencies": {
     "eslint": "^5.15.3",
     "jest": "^24.5.0",
-    "jsdocs": "^1.0.0"
-  }
+    "jsdoc": "^3.5.5"
+  },
+  "dependencies": {}
 }
