@@ -22,7 +22,7 @@
 
 If `loop.js` is run with the `node` command, it logs three names.
 
-It was attempted to break the `convert` function into separate `convert` and a `writeLoop` functions, but this was found to be a breaking change.
+ N.B.: It was attempted to break the `convert` function into separate `convert` and a `writeLoop` functions for the sake of best practices, but the most obvious implementation was found to introduce breaking changes.
 
 #### `pair-programming.js`
 ##### Exported Values and Methods
@@ -33,7 +33,7 @@ This function will create `./article.html` if it does not already exist and will
 This function will result in an error if `./article.html` does not exist.
 
 ###### `tag(input)` -> `./article.html`
-This function converts the input into a buffer, modifies it based on spec, and writes or appends it to `./article.html` using the `write` and `append` functions.
+This function converts the input into a buffer, modifies it per spec, and writes or appends it to `./article.html` using the `write` and `append` functions.
 
 ### Setup
 #### `.env` requirements
@@ -44,7 +44,7 @@ This function converts the input into a buffer, modifies it based on spec, and w
   * Outputs `loop.js` to `./files/`
     * `loop.js` can be run with `node ./files/loop.js`
 
-* `node web-formatter.js`
+* `node pair-programming.js`
   * Outputs `article.html` to `./`
   
 #### Tests
