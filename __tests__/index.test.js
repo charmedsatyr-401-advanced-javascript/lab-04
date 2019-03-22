@@ -1,10 +1,24 @@
 'use strict';
 
-const index = require('../index.js');
+const { strToCharCode, charCodeToBuffer, bufferToFile } = require('../index.js');
 
-describe('`convert`', () => {
+describe('`strToCharCode`', () => {
   it('should be good', () => {
-    index.convert;
+    strToCharCode;
+    expect(true).toBeTruthy();
+  });
+});
+
+describe('`charCodeToBuffer`', () => {
+  it('should be good', () => {
+    charCodeToBuffer;
+    expect(true).toBeTruthy();
+  });
+});
+
+describe('`bufferToFile`', () => {
+  it('should be good', () => {
+    bufferToFile;
     expect(true).toBeTruthy();
   });
 });
